@@ -71,3 +71,13 @@ $ sudo vncserver :1
 ```
 
 ---------------
+
+## Usefull Commands
+
+shutdown command
+
+```bash
+$ sudo shutdown -h now
+```
+
+---------------
