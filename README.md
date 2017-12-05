@@ -48,6 +48,12 @@ $ sudo ifconfig
 
 Look for "inet addr".
 
+```bash
+$ ssh pi@<IP>
+```
+
+Password is `raspberry`
+
 ---------------
 
 ## 3. Setting up Tight VNC Server ##
