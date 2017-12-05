@@ -16,6 +16,21 @@ $ diskutil list
 ```
 
 - Identify the disk (not partition) of yoor SD card e.g. `disk4`(not `disk4s1`)
+- Unmount your SD card by using the disk identifier to prepare copying data to it:
+
+```bash
+$ diskutil unmountDisk /dev/disk<disk# from diskutil>
+```
+
+e.g. `diskutil unmount /dev/disk4`
+
+- Copy the data to your SD card:
+
+```bash
+$ sudo dd bs=1m if=image.img of=/dev/rdisk<disk# from diskutil>
+```
+
+e.g. `$ sudo bs=1m if=2016-02-09-raspbian-jessie.img of=/dev/rdisk4`
 
 Step 2.
 
