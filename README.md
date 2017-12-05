@@ -9,7 +9,7 @@
 
 ## Setup
 
-Step 1.
+1. Step 1
 
 ```bash
 $ diskutil list
