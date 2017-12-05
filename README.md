@@ -32,7 +32,7 @@ $ sudo dd bs=1m if=image.img of=/dev/rdisk<disk# from diskutil>
 
 e.g. `$ sudo bs=1m if=2016-02-09-raspbian-jessie.img of=/dev/rdisk4`
 
-Step 2.
+## 2. Obtaining the IP Address ##
 
 If the IP is known then from the terminal enter:
 
@@ -48,7 +48,7 @@ $ sudo ifconfig
 
 Look for "inet addr".
 
-Step 3.
+## 3. Setting up Tight VNC Server ##
 
 If tight vnc server has not been installed onto the Raspberry Pi, from the terminal enter:
 
