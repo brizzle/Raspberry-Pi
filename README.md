@@ -22,3 +22,17 @@ $ sudo ifconfig
 ```
 
 Look for "inet addr".
+
+Step 3.
+
+If tight vnc server has not been installed onto the Raspberry Pi, from the command line enter:
+
+```bash
+$ sudo apt-get install tightvncserver
+```
+
+Else, the from the command line enter:
+
+```bash
+sudo vncserver :1
+```
