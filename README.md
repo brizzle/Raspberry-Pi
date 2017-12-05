@@ -32,6 +32,8 @@
   ```
 
   e.g. `$ sudo bs=1m if=2016-02-09-raspbian-jessie.img of=/dev/rdisk4`
+  
+  ---------------
 
 ### 2. Obtaining the IP Address ###
 
