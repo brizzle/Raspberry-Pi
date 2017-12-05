@@ -9,6 +9,14 @@
 
 ## Setup
 
+Step 1.
+
+```bash
+$ diskutil list
+```
+
+- Identify the disk (not partition) of yoor SD card e.g. `disk4`(not `disk4s1`)
+
 Step 2.
 
 If the IP is known then from the terminal enter:
