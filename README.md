@@ -9,14 +9,14 @@
 
 ## Setup
 
-1. Step 1
 
+#### 1. Installing Raspbian ####
 ```bash
 $ diskutil list
 ```
 
-- Identify the disk (not partition) of yoor SD card e.g. `disk4`(not `disk4s1`)
-- Unmount your SD card by using the disk identifier to prepare copying data to it:
+* Identify the disk (not partition) of yoor SD card e.g. `disk4`(not `disk4s1`)
+* Unmount your SD card by using the disk identifier to prepare copying data to it:
 
 ```bash
 $ diskutil unmountDisk /dev/disk<disk# from diskutil>
