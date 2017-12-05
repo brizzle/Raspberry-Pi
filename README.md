@@ -7,10 +7,8 @@
 
 [Windows 10 IoT Core Download](https://developer.microsoft.com/en-us/windows/iot/getstarted)
 
-## Setup
-
-
 ### 1. Installing Raspbian ###
+=============
 
   ```bash
   $ diskutil list
