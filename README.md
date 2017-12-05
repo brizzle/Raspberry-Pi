@@ -10,7 +10,7 @@
 ## Setup
 
 
-#### 1. Installing Raspbian ####
+## 1. Installing Raspbian ##
 ```bash
 $ diskutil list
 ```
