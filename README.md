@@ -30,6 +30,14 @@ $ sudo dd bs=1m if=image.img of=/dev/rdisk<disk# from diskutil>
 
 e.g. `$ sudo bs=1m if=2016-02-09-raspbian-jessie.img of=/dev/rdisk4`
 
+* The SSH server will need to be enabled. To do so, enter in the terminal:
+
+```bash
+sudo rasp-config
+```
+
+Select `Interfacing options`, then navigate to `ssh`, press Enter and select `Enable or disable ssh server`.
+
 ---------------
 
 ## 2. Obtaining the IP Address ##
