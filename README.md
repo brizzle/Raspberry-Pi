@@ -80,6 +80,14 @@ $ sudo vncserver :1
 
 ---------------
 
+## Install Remote Desktop ##
+
+```bash
+$ sudo apt-get install xrdp
+```
+
+---------------
+
 ## Usefull Commands
 
 shutdown command
