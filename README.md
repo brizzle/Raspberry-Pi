@@ -97,3 +97,58 @@ $ sudo shutdown -h now
 ```
 
 ---------------
+
+## SSH into Raspberry Pi
+
+```bash
+ssh pi@<hostname>
+```
+
+i.e `ssh pi@raspberrypi`
+
+---------------
+
+## Install Node.js
+
+```bash
+sudo apt install nodejs
+```
+
+```bash
+wget https://nodejs.org/dist/v10.16.1/node-v10.16.1-linux-armv7l.tar.xz
+tar -xJf node-v10.16.1-linux-armv7l.tar.xz
+cd node-v10.16.1-linux-armv7l/
+sudo cp -R * /usr/local/
+```
+
+---------------
+
+## Installing NPM
+
+```bash
+sudo npm install npm@latest -g
+```
+
+---------------
+
+## Installing Yarn
+
+Curl is needed to install Yarn. Run the command below to see if Curl is installed.
+
+```bash
+sudo apt install curl
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add
+sudo sh -c 'echo "deb https://dl.yarnpkg.com/debian/ stable main" >> /etc/apt/sources.list.d/yarn.list'
+sudo apt update
+sudo apt install yarn
+yarn --version
+```
+
+---------------
+
+## Install Git
+
+```bash
+sudo apt install git
+git --version
+```
