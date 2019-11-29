@@ -152,3 +152,9 @@ yarn --version
 sudo apt install git
 git --version
 ```
+
+## Get IP Address
+
+```bash
+hostname -I
+```
