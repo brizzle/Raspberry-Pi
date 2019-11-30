@@ -96,6 +96,12 @@ shutdown command
 $ sudo shutdown -h now
 ```
 
+restart
+
+```bash
+$ sudo shutdown -r now
+```
+
 ---------------
 
 ## SSH into Raspberry Pi
@@ -153,8 +159,26 @@ sudo apt install git
 git --version
 ```
 
+---------------
+
 ## Get IP Address
 
 ```bash
 hostname -I
+```
+
+---------------
+
+## Rename Hostname
+
+Step 1 - change hostname in hostname file
+
+```bash
+sudo bash -c "echo piserver01 > ../../etc/hostname"
+```
+
+Step 2 - change hostname in hosts file
+
+```bash
+sudo nano ../../etc/hosts
 ```
