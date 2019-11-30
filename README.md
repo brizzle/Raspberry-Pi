@@ -13,14 +13,14 @@
 $ diskutil list
 ```
 
-* Identify the disk (not partition) of yoor SD card e.g. `disk4`(not `disk4s1`)
+* Identify the disk (not partition) of yoor SD card i.e. `disk4`(not `disk4s1`)
 * Unmount your SD card by using the disk identifier to prepare copying data to it:
 
 ```bash
 $ diskutil unmountDisk /dev/disk<disk# from diskutil>
 ```
 
-e.g. `diskutil unmount /dev/disk4`
+i.e. `diskutil unmount /dev/disk4`
 
 * Copy the data to your SD card:
 
@@ -28,7 +28,7 @@ e.g. `diskutil unmount /dev/disk4`
 $ sudo dd bs=1m if=image.img of=/dev/rdisk<disk# from diskutil>
 ```
 
-e.g. `$ sudo bs=1m if=2016-02-09-raspbian-jessie.img of=/dev/rdisk4`
+i.e. `$ sudo bs=1m if=2016-02-09-raspbian-jessie.img of=/dev/rdisk4`
 
 * The SSH server will need to be enabled. To do so, enter in the terminal:
 
@@ -47,6 +47,14 @@ If the IP is known then from the terminal enter:
 ```bash
 $ ssh 192.168.1.5 -l pi
 ```
+
+OR
+
+```bash
+$ ssh pi@<hostname>
+```
+
+By default, the default hostname is 'raspberrypi' unless it has been changed
 
 Else then you will need to physically go to the terminal on the Raspberry Pi to get the IP Address. From the terminal enter:
 
@@ -182,3 +190,30 @@ Step 2 - change hostname in hosts file
 ```bash
 sudo nano ../../etc/hosts
 ```
+
+---------------
+
+## 1. Copy image from SD card to computer ##
+
+```bash
+$ diskutil list
+```
+
+* Identify the disk (not partition) of yoor SD card i.e. `disk4`(not `disk4s1`)
+* Unmount your SD card by using the disk identifier to prepare copying data to it:
+
+```bash
+$ diskutil unmountDisk /dev/disk<disk# from diskutil>
+```
+
+i.e. `diskutil unmount /dev/disk4`
+
+* Copy the data to your SD card:
+
+```bash
+$ sudo dd bs=1m if=/dev/disk<disk_#> of=image.img
+```
+
+i.e. `$ sudo bs=1m if=/dev/rdisk4 of=image.img`
+
+---------------
