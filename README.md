@@ -13,7 +13,7 @@
 $ diskutil list
 ```
 
-* Identify the disk (not partition) of yoor SD card i.e. `disk4`(not `disk4s1`)
+* Identify the disk (not partition) of your SD card i.e. `disk4`(not `disk4s1`)
 * Unmount your SD card by using the disk identifier to prepare copying data to it:
 
 ```bash
@@ -28,15 +28,31 @@ i.e. `diskutil unmount /dev/disk4`
 $ sudo dd bs=1m if=image.img of=/dev/rdisk<disk# from diskutil>
 ```
 
-i.e. `$ sudo bs=1m if=2016-02-09-raspbian-jessie.img of=/dev/rdisk4`
+i.e. `$ sudo dd bs=1m if=2019-09-26-raspbian-buster.img of=/dev/rdisk4`
 
 * The SSH server will need to be enabled. To do so, enter in the terminal:
 
 ```bash
-sudo rasp-config
+sudo raspi-config
 ```
 
 Select `Interfacing options`, then navigate to `ssh`, press Enter and select `Enable or disable ssh server`.
+
+---------------
+
+## Rename Hostname
+
+Step 1 - change hostname in hostname file
+
+```bash
+sudo bash -c "echo piserver01 > ../../etc/hostname"
+```
+
+Step 2 - change hostname in hosts file
+
+```bash
+sudo nano ../../etc/hosts
+```
 
 ---------------
 
@@ -173,22 +189,6 @@ git --version
 
 ```bash
 hostname -I
-```
-
----------------
-
-## Rename Hostname
-
-Step 1 - change hostname in hostname file
-
-```bash
-sudo bash -c "echo piserver01 > ../../etc/hostname"
-```
-
-Step 2 - change hostname in hosts file
-
-```bash
-sudo nano ../../etc/hosts
 ```
 
 ---------------
