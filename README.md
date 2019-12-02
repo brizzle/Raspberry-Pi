@@ -51,6 +51,10 @@ Step 2 - change hostname in hosts file
 sudo nano ../../etc/hosts
 ```
 
+Be sure to clean up the known_hosts file.
+
+/Users/2ronto/.ssh/known_hosts
+
 ## 4. Install Node.js, NPM, Yarn, and Git
 
 Run on local machine, run script `02-copy-local-to-remote.sh`. Make sure the `03-main.sh`, `run-nodejs.sh`, `run-npm.sh`, `run-yarn.sh`, and `run-git.sh` files are in the same directory.
