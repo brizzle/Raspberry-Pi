@@ -1,13 +1,12 @@
 # Raspberry-Pi
 
-
 ## Downloads
 
 [Raspbian Download](https://www.raspberrypi.org/downloads/raspbian/)
 
 [Windows 10 IoT Core Download](https://developer.microsoft.com/en-us/windows/iot/getstarted)
 
-## 1. Install Raspbian ##
+## 1. Install Raspbian
 
 Run script `01-image-install.sh`. Make sure the image is in the same directory as the `01-image-install.sh` file.
 
@@ -15,9 +14,9 @@ Run script `01-image-install.sh`. Make sure the image is in the same directory a
 bash 01-image-install.sh
 ```
 
-## 2. Enable SSH ##
+## 2. Enable SSH
 
-* The SSH server will need to be enabled. To do so, enter in the terminal:
+- The SSH server will need to be enabled. To do so, enter in the terminal:
 
 ```bash
 sudo raspi-config
@@ -25,7 +24,7 @@ sudo raspi-config
 
 Select `Interfacing options`, then navigate to `ssh`, press Enter and select `Enable or disable ssh server`.
 
----------------
+---
 
 ### SSH into Raspberry Pi
 
@@ -92,15 +91,15 @@ Else, the from the terminal enter:
 $ sudo vncserver :1
 ```
 
----------------
+---
 
-## Install Remote Desktop ##
+## Install Remote Desktop
 
 ```bash
 $ sudo apt-get install xrdp
 ```
 
----------------
+---
 
 ## Usefull Commands
 
@@ -116,7 +115,7 @@ restart
 $ sudo shutdown -r now
 ```
 
----------------
+---
 
 ## Install Node.js
 
@@ -131,7 +130,7 @@ cd node-v10.16.1-linux-armv7l/
 sudo cp -R * /usr/local/
 ```
 
----------------
+---
 
 ## Installing NPM
 
@@ -139,29 +138,35 @@ sudo cp -R * /usr/local/
 sudo npm install npm@latest -g
 ```
 
----------------
+---
 
 ## Copy image from SD card to computer
 
 ```bash
-$ diskutil list
+diskutil list
 ```
 
-* Identify the disk (not partition) of yoor SD card i.e. `disk4`(not `disk4s1`)
-* Unmount your SD card by using the disk identifier to prepare copying data to it:
+- Identify the disk (not partition) of yoor SD card i.e. `disk4`(not `disk4s1`)
+- Unmount your SD card by using the disk identifier to prepare copying data to it:
 
 ```bash
-$ diskutil unmountDisk /dev/disk<disk# from diskutil>
+diskutil unmountDisk /dev/disk<disk# from diskutil>
 ```
 
 i.e. `diskutil unmount /dev/disk4`
 
-* Copy the data to your SD card:
+- Copy the data to your SD card:
 
 ```bash
-$ sudo dd bs=1m if=/dev/disk<disk_#> of=image.img
+sudo dd bs=1m if=/dev/disk<disk_#> of=image.img
 ```
 
-i.e. `$ sudo bs=1m if=/dev/rdisk4 of=image.img`
+i.e. `sudo bs=1m if=/dev/rdisk4 of=image.img`
 
----------------
+---
+
+## File Compression
+
+```bash
+zip -r -X archive_name.zip folder_to_compress
+```
