@@ -7,28 +7,15 @@
 
 [Windows 10 IoT Core Download](https://developer.microsoft.com/en-us/windows/iot/getstarted)
 
-## 1. Installing Raspbian ##
+## 1. Install Raspbian ##
+
+Run script `01-image-install.sh`. Make sure the image is in the same directory as the `01-image-install.sh` file.
 
 ```bash
-$ diskutil list
+bash 01-image-install.sh
 ```
 
-* Identify the disk (not partition) of your SD card i.e. `disk4`(not `disk4s1`)
-* Unmount your SD card by using the disk identifier to prepare copying data to it:
-
-```bash
-$ diskutil unmountDisk /dev/disk<disk# from diskutil>
-```
-
-i.e. `diskutil unmount /dev/disk4`
-
-* Copy the data to your SD card:
-
-```bash
-$ sudo dd bs=1m if=image.img of=/dev/rdisk<disk# from diskutil>
-```
-
-i.e. `$ sudo dd bs=1m if=2019-09-26-raspbian-buster.img of=/dev/rdisk4`
+## 2. Enable SSH ##
 
 * The SSH server will need to be enabled. To do so, enter in the terminal:
 
@@ -40,7 +27,17 @@ Select `Interfacing options`, then navigate to `ssh`, press Enter and select `En
 
 ---------------
 
-## Rename Hostname
+### SSH into Raspberry Pi
+
+```bash
+ssh pi@<hostname>
+```
+
+i.e `ssh pi@raspberrypi`
+
+## 3. Rename Hostname
+
+By default, the default hostname is 'raspberrypi' unless it has been changed.
 
 Step 1 - change hostname in hostname file
 
@@ -54,41 +51,30 @@ Step 2 - change hostname in hosts file
 sudo nano ../../etc/hosts
 ```
 
----------------
+## 4. Install Node.js, NPM, Yarn, and Git
 
-## 2. Obtaining the IP Address ##
-
-If the IP is known then from the terminal enter:
+Run on local machine, run script `02-copy-local-to-remote.sh`. Make sure the `03-main.sh`, `run-nodejs.sh`, `run-npm.sh`, `run-yarn.sh`, and `run-git.sh` files are in the same directory.
 
 ```bash
-$ ssh 192.168.1.5 -l pi
+bash 02-copy-local-to-remote.sh
 ```
 
-OR
+Once the files have been copied to the remote server, ssh in and cd to the `Documents/setup/` directory.
 
 ```bash
-$ ssh pi@<hostname>
+ssh pi@<hostname>
 ```
-
-By default, the default hostname is 'raspberrypi' unless it has been changed
-
-Else then you will need to physically go to the terminal on the Raspberry Pi to get the IP Address. From the terminal enter:
 
 ```bash
-$ sudo ifconfig
+cd Documents/setup/
+bash 03-main.sh
 ```
 
-Look for "inet addr".
+A log file will be created and placed in the `./logs/` directory.
 
-```bash
-$ ssh pi@<IP>
-```
+## Optional Steps
 
-Password is `raspberry`
-
----------------
-
-## 3. Setting up Tight VNC Server ##
+### Setting up Tight VNC Server
 
 If tight vnc server has not been installed onto the Raspberry Pi, from the terminal enter:
 
@@ -128,16 +114,6 @@ $ sudo shutdown -r now
 
 ---------------
 
-## SSH into Raspberry Pi
-
-```bash
-ssh pi@<hostname>
-```
-
-i.e `ssh pi@raspberrypi`
-
----------------
-
 ## Install Node.js
 
 ```bash
@@ -161,39 +137,7 @@ sudo npm install npm@latest -g
 
 ---------------
 
-## Installing Yarn
-
-Curl is needed to install Yarn. Run the command below to see if Curl is installed.
-
-```bash
-sudo apt install curl
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add
-sudo sh -c 'echo "deb https://dl.yarnpkg.com/debian/ stable main" >> /etc/apt/sources.list.d/yarn.list'
-sudo apt update
-sudo apt install yarn
-yarn --version
-```
-
----------------
-
-## Install Git
-
-```bash
-sudo apt install git
-git --version
-```
-
----------------
-
-## Get IP Address
-
-```bash
-hostname -I
-```
-
----------------
-
-## 1. Copy image from SD card to computer ##
+## Copy image from SD card to computer
 
 ```bash
 $ diskutil list
